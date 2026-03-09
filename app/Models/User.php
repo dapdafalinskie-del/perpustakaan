@@ -18,9 +18,12 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'id_user',
+        'nama',
+        'jenis_kelamin',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -44,5 +47,9 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function anggota(){
+        return $this->hasOne(Anggota::class, 'id_user', 'id');
     }
 }
