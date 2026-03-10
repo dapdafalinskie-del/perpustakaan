@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function(){
@@ -47,7 +48,19 @@ Route::middleware('auth')->group(function(){
             Route::delete('/{id}/destroy', 'destroy')
                 ->name('buku.destroy');
         });
+
+        Route::controller(TransaksiController::class)->prefix('transaksi')->group(function(){
+            Route::get('/', 'index')
+                ->name('transaksi.index');
+            Route::get('/create', 'create')
+                ->name('transaksi.create');
+            Route::post('/store', 'store')
+                ->name('transaksi.store');
+            Route::get('/{id}/return', 'return')
+                ->name('transaksi.return');
+        });
     });
+
 
     
 });

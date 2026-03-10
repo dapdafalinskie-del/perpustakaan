@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('id_transaksi')->unique();
-            $table->date('tanggal_pinjam');
+            $table->date('tanggal_pinjam')->useCurrent();
             $table->date('tanggal_kembali')->nullable();
             $table->foreignId('id_anggota')->constrained('anggota');
             $table->foreignId('id_buku')->constrained('buku');

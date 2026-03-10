@@ -84,7 +84,7 @@
                 @enderror
             </div>
             <footer class="flex">
-                <a href="{{ route('anggota.index') }}" class="btn-secondary mr-auto">Kembali</a>
+                <a href="{{ route('buku.index') }}" class="btn-secondary mr-auto">Kembali</a>
                 <button type="submit" class="btn">Edit</button>
             </footer>
         </form>
