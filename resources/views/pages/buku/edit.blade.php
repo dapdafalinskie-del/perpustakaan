@@ -38,7 +38,7 @@
 
             <div class="grid gap-2">
                 <label>Pengarang</label>
-                <input type="text" name="pengarang" placeholder="Masukan pengarang" value="{{ $buku->pengarang }}" @error('pengarang') aria-invalid="true" @enderror>
+                <input type="text" name="pengarang" placeholder="Masukan nama pengarang" value="{{ $buku->pengarang }}" @error('pengarang') aria-invalid="true" @enderror>
                 @error('pengarang')
                 <p class="text-destructive text-sm">{{ $message }}</p>
                 @enderror
@@ -46,7 +46,7 @@
 
             <div class="grid gap-2">
                 <label>Penerbit</label>
-                <input type="text" name="penerbit" placeholder="Masukan penerbit" value="{{ $buku->penerbit }}" @error('penerbit') aria-invalid="true" @enderror>
+                <input type="text" name="penerbit" placeholder="Masukan nama penerbit" value="{{ $buku->penerbit }}" @error('penerbit') aria-invalid="true" @enderror>
                 @error('penerbit')
                 <p class="text-destructive text-sm">{{ $message }}</p>
                 @enderror
@@ -54,7 +54,7 @@
 
             <div class="grid gap-2">
                 <label>Tahun</label>
-                <input type="text" name="tahun" placeholder="Masukan tahun" value="{{ $buku->tahun }}" @error('tahun') aria-invalid="true" @enderror maxlength="4">
+                <input type="text" name="tahun" placeholder="Contoh: 2024" value="{{ $buku->tahun }}" @error('tahun') aria-invalid="true" @enderror maxlength="4">
                 @error('tahun')
                 <p class="text-destructive text-sm">{{ $message }}</p>
                 @enderror
@@ -62,7 +62,7 @@
             
             <div class="grid gap-2">
                 <label>Kategori</label>
-                <input type="text" name="kategori" placeholder="Masukan kategori" value="{{ $buku->kategori }}" @error('kategori') aria-invalid="true" @enderror>
+                <input type="text" name="kategori" placeholder="Contoh: Teknologi" value="{{ $buku->kategori }}" @error('kategori') aria-invalid="true" @enderror>
                 @error('kategori')
                 <p class="text-destructive text-sm">{{ $message }}</p>
                 @enderror
@@ -70,7 +70,7 @@
 
             <div class="grid gap-2">
                 <label>Rak</label>
-                <input type="text" name="rak" placeholder="Masukan rak" value="{{ $buku->rak }}" @error('rak') aria-invalid="true" @enderror>
+                <input type="text" name="rak" placeholder="Contoh: A1" value="{{ $buku->rak }}" @error('rak') aria-invalid="true" @enderror>
                 @error('rak')
                 <p class="text-destructive text-sm">{{ $message }}</p>
                 @enderror
@@ -78,7 +78,7 @@
 
             <div class="grid gap-2">
                 <label>Stok</label>
-                <input type="text" name="stok" placeholder="Masukan stok" value="{{ $buku->stok }}" @error('stok') aria-invalid="true" @enderror>
+                <input type="text" name="stok" placeholder="Masukkan jumlah stok" value="{{ $buku->stok }}" @error('stok') aria-invalid="true" @enderror>
                 @error('stok')
                 <p class="text-destructive text-sm">{{ $message }}</p>
                 @enderror

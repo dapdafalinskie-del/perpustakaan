@@ -16,9 +16,15 @@
 @endsection
 @section('content')
 <div class="card">
-    <header class="flex">
+    <header>
         <h2>Daftar Buku</h2>
-        <a href="{{ route('buku.create') }}" class="btn ms-auto">Tambah Buku</a>
+        <div class="flex gap-2 mt-2">
+            <form method="GET">
+                <input class="input w-xs" type="text" name="search" value="{{ request('search') }}" placeholder="Cari buku.." onchange="this.form.submit()">
+            </form>
+            <a href="{{ route('laporan.buku') }}" target="_blank" class="btn-secondary ms-auto">Cetak Laporan</a>
+            <a href="{{ route('buku.create') }}" class="btn">Tambah Buku</a>
+        </div>
     </header>
     <section>
         <div class="overflow-x-auto">

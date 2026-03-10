@@ -74,6 +74,28 @@
                 @enderror
             </div>
 
+            <article class="group/item flex items-center border text-sm rounded-md transition-colors 
+            [a]:hover:bg-accent/50 [a]:transition-colors duration-100 flex-wrap outline-none 
+            focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] 
+            border-border p-4 gap-4">
+                <div class="flex items-center justify-center size-9 rounded-md bg-muted">
+                    <x-lucide-info class="w-5 h-5 text-muted-foreground" />
+                </div>
+
+                <div class="flex flex-1 flex-col gap-1">
+                    <h3 class="flex w-fit items-center gap-2 text-sm font-medium leading-snug">
+                        Informasi Peminjaman
+                    </h3>
+
+                    <p class="text-muted-foreground text-sm leading-normal">
+                        Tanggal peminjaman otomatis menggunakan tanggal hari ini. 
+                        Buku harus dikembalikan dalam waktu 5 hari. 
+                        Keterlambatan dikenakan denda Rp1.000 per hari.
+                    </p>
+                </div>
+
+            </article>
+            
             <footer class="flex">
                 <a href="{{ route('transaksi.index') }}" class="btn-secondary mr-auto">Kembali</a>
                 <button type="submit" class="btn">Tambah</button>

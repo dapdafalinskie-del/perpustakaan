@@ -7,8 +7,19 @@ use Illuminate\Http\Request;
 
 class BukuController extends Controller
 {
-    public function index(){
-        $daftarBuku = Buku::get();
+    public function index(Request $request){
+        $search = $request->search;
+
+        $daftarBuku = Buku::when($search, function ($query, $search) {
+            $query->where('kode_buku', 'like', "%{$search}%")
+                ->orWhere('judul_buku', 'like', "%{$search}%")
+                ->orWhere('pengarang', 'like', "%{$search}%")
+                ->orWhere('penerbit', 'like', "%{$search}%")
+                ->orWhere('tahun', 'like', "%{$search}%")
+                ->orWhere('kategori', 'like', "%{$search}%")
+                ->orWhere('rak', 'like', "%{$search}%");
+        })->get();
+
         return view('pages.buku.index', compact('daftarBuku'));
     }
 

@@ -11,8 +11,29 @@ use Symfony\Contracts\Service\Attribute\Required;
 
 class TransaksiController extends Controller
 {
-    public function index(){
-        $daftarTransaksi = Transaksi::get();
+    public function index(Request $request){
+        $search = $request->search;
+
+        $daftarTransaksi = Transaksi::with(['anggota', 'buku'])
+            ->when($search, function ($query, $search) {
+
+                $query->where('id_transaksi', 'like', "%{$search}%")
+                
+                ->orWhereHas('anggota', function ($q) use ($search) {
+                    $q->where('id_anggota', 'like', "%{$search}%")
+                    ->orWhere('nama', 'like', "%{$search}%")
+                    ->orWhere('kelas', 'like', "%{$search}%");
+                })
+
+                ->orWhereHas('buku', function ($q) use ($search) {
+                    $q->where('kode_buku', 'like', "%{$search}%")
+                    ->orWhere('judul_buku', 'like', "%{$search}%");
+                })
+
+                ->orWhere('status', 'like', "%{$search}%");
+            })
+            ->get();
+
         return view('pages.transaksi.index', compact('daftarTransaksi'));
     }
 

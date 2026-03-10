@@ -6,14 +6,13 @@
             <x-lucide-library class="h-4 w-4" />
         </div>
         <div class="grid flex-1 text-left text-sm leading-tight">
-            <span class="truncate font-medium">Perpustakaan</span>
-            <span class="truncate text-xs">Lorem, ipsum.</span>
+            <span class="truncate font-medium">Sistem Perpustakaan</span>
+            <span class="truncate text-xs"></span>
         </div>
         </a>
     </header>
     <section class="scrollbar">
     <div role="group" aria-labelledby="group-label-content-1">
-        <h3 id="group-label-content-1">Getting started</h3>
         <ul>
         <li>
             <a href="{{ route('dashboard') }}">

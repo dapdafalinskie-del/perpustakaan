@@ -10,9 +10,15 @@
 @endsection
 @section('content')
 <div class="card">
-    <header class="flex">
+    <header>
         <h2>Daftar Transaksi</h2>
-        <a href="{{ route('transaksi.create') }}" class="btn ms-auto">Tambah Transaksi</a>
+        <div class="flex gap-2 mt-2">
+            <form method="GET">
+                <input class="input w-xs" type="text" name="search" value="{{ request('search') }}" placeholder="Cari transaksi, anggota, atau buku..." onchange="this.form.submit()" >
+            </form>
+            <a href="{{ route('laporan.transaksi') }}" target="_blank" class="btn-secondary ms-auto">Cetak Laporan</a>
+            <a href="{{ route('transaksi.create') }}" class="btn">Tambah Transaksi</a>
+        </div>
     </header>
     <section>
         <div class="overflow-x-auto">

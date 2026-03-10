@@ -49,11 +49,12 @@
                 </button>
                 <div id="select-jenis-kelamin-popover" data-popover aria-hidden="true">
                     <div role="listbox" id="select-jenis-kelamin-listbox" aria-orientation="vertical" aria-labelledby="select-jenis-kelamin-trigger" data-empty="No framework found.">
+                    <div role="option" data-value="">Pilih jenis kelamin</div>
                     <div role="option" data-value="L">Laki-laki</div>
                     <div role="option" data-value="P">Perempuan</div>
                     </div>
                 </div>
-                <input type="hidden" name="select-jenis-kelamin-value" value="" />
+                <input type="hidden" name="select-jenis-kelamin-value" value="{{ old('select-jenis-kelamin-value') }}" />
                 </div>
 
                 @error('select-jenis-kelamin-value')
@@ -63,7 +64,7 @@
 
             <div class="grid gap-2">
                 <label>Kelas</label>
-                <input type="text" name="kelas" placeholder="Masukan kelas" value="{{ old('kelas') }}" @error('kelas') aria-invalid="true" @enderror>
+                <input type="text" name="kelas" placeholder="Contoh: XI RPL 1" value="{{ old('kelas') }}" @error('kelas') aria-invalid="true" @enderror>
                 @error('kelas')
                 <p class="text-destructive text-sm">{{ $message }}</p>
                 @enderror
@@ -71,7 +72,7 @@
 
             <div class="grid gap-2">
                 <label>Jurusan</label>
-                <input type="text" name="jurusan" placeholder="Masukan jurusan" value="{{ old('jurusan') }}" @error('jurusan') aria-invalid="true" @enderror>
+                <input type="text" name="jurusan" placeholder="Contoh: RPL" value="{{ old('jurusan') }}" @error('jurusan') aria-invalid="true" @enderror>
                 @error('jurusan')
                 <p class="text-destructive text-sm">{{ $message }}</p>
                 @enderror
@@ -79,7 +80,7 @@
 
             <div class="grid gap-2">
                 <label>Alamat</label>
-                <input type="text" name="alamat" placeholder="Masukan alamat" value="{{ old('alamat') }}" @error('alamat') aria-invalid="true" @enderror>
+                <input type="text" name="alamat" placeholder="Masukkan alamat lengkap" value="{{ old('alamat') }}" @error('alamat') aria-invalid="true" @enderror>
                 @error('alamat')
                 <p class="text-destructive text-sm">{{ $message }}</p>
                 @enderror
@@ -87,7 +88,7 @@
             
             <div class="grid gap-2">
                 <label>Nomor HP</label>
-                <input type="text" name="no_hp" placeholder="Masukan nomor hp" value="{{ old('no_hp') }}" @error('no_hp') aria-invalid="true" @enderror>
+                <input type="text" name="no_hp" placeholder="Contoh: 081234567890" value="{{ old('no_hp') }}" @error('no_hp') aria-invalid="true" @enderror>
                 @error('no_hp')
                 <p class="text-destructive text-sm">{{ $message }}</p>
                 @enderror

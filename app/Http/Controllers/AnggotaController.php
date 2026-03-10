@@ -7,8 +7,17 @@ use Illuminate\Http\Request;
 
 class AnggotaController extends Controller
 {
-    public function index(){
-        $daftarAnggota = Anggota::get();
+    public function index(Request $request){
+        $search = $request->search;
+
+        $daftarAnggota = Anggota::when($search, function ($query, $search) {
+            $query->where('id_anggota', 'like', "%{$search}%")
+                ->orWhere('nama', 'like', "%{$search}%")
+                ->orWhere('kelas', 'like', "%{$search}%")
+                ->orWhere('jurusan', 'like', "%{$search}%")
+                ->orWhere('no_hp', 'like', "%{$search}%");
+        })->get();
+
         return view('pages.anggota.index', compact('daftarAnggota'));
     }
 

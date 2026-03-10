@@ -3,13 +3,14 @@
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function(){
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->name('dashboard');
 
     Route::get('/', function(){
         return redirect()->route('dashboard');
@@ -58,6 +59,15 @@ Route::middleware('auth')->group(function(){
                 ->name('transaksi.store');
             Route::get('/{id}/return', 'return')
                 ->name('transaksi.return');
+        });
+
+        Route::controller(LaporanController::class)->prefix('laporan')->group(function(){
+            Route::get('/anggota', 'anggota')
+                ->name('laporan.anggota');
+            Route::get('/buku', 'buku')
+                ->name('laporan.buku');
+            Route::get('/transaksi', 'transaksi')
+                ->name('laporan.transaksi');
         });
     });
 
