@@ -9,8 +9,8 @@
 </head>
 <body>
     @include('layout.partials.sidebar')
-
     <main class="px-8 py-4">
+        @include('layout.partials.alert')
         {{-- <button type="button" onclick="document.dispatchEvent(new CustomEvent('basecoat:sidebar'))">Toggle sidebar</button> --}}
         <ol class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5">
             <li class="inline-flex items-center gap-1.5">
@@ -52,6 +52,9 @@
                 <span class="text-foreground font-normal">Breadcrumb</span>
             </li>
         </ol>
+        <div class="mt-5">
+            @yield('content')
+        </div>
     </main>
 </body>
 </html>

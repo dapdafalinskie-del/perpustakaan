@@ -10,8 +10,9 @@ class Anggota extends Model
     public $incrementing = true;
     public $timestamp = true;
     protected $fillable = [
-        'id_user',
         'id_anggota',
+        'nama',
+        'jenis_kelamin',
         'kelas',
         'jurusan',
         'alamat',
@@ -23,10 +24,6 @@ class Anggota extends Model
         'created_at'     => 'datetime',
         'updated_at'     => 'datetime',
     ];
-
-    public function user(){
-        return $this->belongsTo(User::class, 'id_user', 'id');
-    }
 
     public function transaksi(){
         return $this->hasMany(Transaksi::class, 'id_anggota', 'id');

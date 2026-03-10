@@ -20,7 +20,6 @@ class User extends Authenticatable
     protected $fillable = [
         'id_user',
         'nama',
-        'jenis_kelamin',
         'email',
         'password',
         'role',
@@ -49,7 +48,4 @@ class User extends Authenticatable
         ];
     }
 
-    public function anggota(){
-        return $this->hasOne(Anggota::class, 'id_user', 'id');
-    }
 }

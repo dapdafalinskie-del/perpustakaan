@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('anggota', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignId('id_user')->constrained('users');
             $table->string('id_anggota')->unique();
+            $table->string('nama');
+            $table->enum('jenis_kelamin', ['L', 'P']);
             $table->string('kelas');
             $table->string('jurusan');
             $table->string('alamat');
