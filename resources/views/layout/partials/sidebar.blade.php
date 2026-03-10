@@ -57,5 +57,8 @@
             </ul>
         </div>
         </section>
+        <footer>
+            <button class="btn-destructive" onclick="document.getElementById('alert-dialog').showModal()">Logout</button>
+        </footer>
     </nav>
 </aside>
