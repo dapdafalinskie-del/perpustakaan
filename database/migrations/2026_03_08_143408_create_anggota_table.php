@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('jurusan');
             $table->string('alamat');
             $table->string('no_hp');
-            $table->date('tanggal_daftar');
+            $table->date('tanggal_daftar')->useCurrent();
 
             $table->timestamps();
         });
