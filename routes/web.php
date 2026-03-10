@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BukuController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function(){
@@ -30,6 +31,21 @@ Route::middleware('auth')->group(function(){
                 ->name('anggota.update');
             Route::delete('/{id}/destroy', 'destroy')
                 ->name('anggota.destroy');
+        });
+
+        Route::controller(BukuController::class)->prefix('buku')->group(function(){
+            Route::get('/', 'index')
+                ->name('buku.index');
+            Route::get('/create', 'create')
+                ->name('buku.create');
+            Route::post('/store', 'store')
+                ->name('buku.store');
+            Route::get('/{id}/edit', 'edit')
+                ->name('buku.edit');
+            Route::patch('/{id}/update', 'update')
+                ->name('buku.update');
+            Route::delete('/{id}/destroy', 'destroy')
+                ->name('buku.destroy');
         });
     });
 

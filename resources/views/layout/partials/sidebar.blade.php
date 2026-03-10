@@ -35,7 +35,7 @@
                 </li>
 
                 <li>
-                <a href="#">
+                <a href="{{ route('buku.index') }}">
                     <span>Buku</span>
                 </a>
                 </li>
